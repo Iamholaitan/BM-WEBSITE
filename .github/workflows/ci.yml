@@ -69,12 +69,7 @@ jobs:
       - run: npm run build -w @bm/shared
       - run: npm run db:generate -w @bm/database
       - name: Run tests
-        run: |
-          set -o pipefail
-          npm run test 2>&1 | tee test.log
-      - name: Dump test output on failure
-        if: failure()
-        run: tail -80 test.log | while read -r line; do echo "::error::$line"; done
+        run: npm run test -w @bm/api
 
   build:
     name: Build
