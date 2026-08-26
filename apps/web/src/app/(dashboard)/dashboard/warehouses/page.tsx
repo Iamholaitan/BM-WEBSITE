@@ -22,7 +22,7 @@ export default function WarehousesPage() {
 
   const load = () => {
     setLoading(true);
-    api.get('/warehouses?limit=100').then((res) => {
+    void api.get('/warehouses?limit=100').then((res) => {
       setWarehouses(res.data.data);
       setLoading(false);
     });

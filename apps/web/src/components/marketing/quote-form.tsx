@@ -68,7 +68,6 @@ export function QuoteForm() {
       `• Country: ${v.country || '-'}`,
     ];
     return lines.join('\n');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [submitted]);
 
   const onSubmit = async (_values: QuoteFormValues) => {

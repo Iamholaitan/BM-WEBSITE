@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import api from '@/lib/api';
 import { Shipment } from '@/types';
-import { ArrowLeft, MapPin, Package, Clock, AlertCircle } from 'lucide-react';
+import { ArrowLeft, MapPin, Package, Clock } from 'lucide-react';
 import Link from 'next/link';
 
 const statusColors: Record<string, string> = {
@@ -35,7 +35,6 @@ const EVENT_TYPES = ['PICKED_UP', 'DEPARTED', 'ARRIVED', 'CUSTOMS_HOLD', 'OUT_FO
 
 export default function ShipmentDetailPage() {
   const params = useParams();
-  const router = useRouter();
   const id = params.id as string;
   const [shipment, setShipment] = useState<Shipment | null>(null);
   const [loading, setLoading] = useState(true);
@@ -44,7 +43,7 @@ export default function ShipmentDetailPage() {
   const [eventForm, setEventForm] = useState({ eventType: 'DEPARTED', location: '', notes: '' });
 
   const loadShipment = () => {
-    api.get(`/shipments/${id}`).then((res) => {
+    void api.get(`/shipments/${id}`).then((res) => {
       setShipment(res.data.data);
       setLoading(false);
     });
@@ -60,19 +59,6 @@ export default function ShipmentDetailPage() {
       loadShipment();
     } catch {
       alert('Failed to update status');
-    } finally {
-      setUpdating(false);
-    }
-  };
-
-  const handleCancel = async () => {
-    if (!confirm('Cancel this shipment? This cannot be undone.')) return;
-    setUpdating(true);
-    try {
-      await api.post(`/shipments/${id}/cancel`);
-      loadShipment();
-    } catch {
-      alert('Failed to cancel shipment');
     } finally {
       setUpdating(false);
     }

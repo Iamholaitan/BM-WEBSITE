@@ -163,7 +163,7 @@ export const products: Product[] = [
       'Pepper is central to Nigerian and West African cuisine, and demand continues to grow among diaspora and mainstream food markets. We source quality peppers, coordinate drying, sorting, and milling where required, and pack to specification.',
     forms: ['Whole dried', 'Milled/powder', 'Crushed', 'Buyer-specified'],
     packaging: ['Bags or food-grade packs per specification'],
-    icon: 'Pepper',
+    icon: 'FlameKindling',
   },
   {
     slug: 'dried-onion',

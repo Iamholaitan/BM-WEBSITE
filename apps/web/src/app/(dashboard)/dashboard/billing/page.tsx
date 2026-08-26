@@ -22,7 +22,7 @@ export default function BillingPage() {
 
   const load = () => {
     setLoading(true);
-    Promise.all([
+    void Promise.all([
       api.get('/invoices?limit=100'),
       api.get('/customers?limit=100'),
       api.get('/shipments?limit=100'),

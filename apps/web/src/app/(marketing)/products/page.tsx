@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 import { ProductsFilter } from '@/components/marketing/products-filter';
 import { CtaBanner } from '@/components/marketing/cta-banner';
 import { Reveal } from '@/components/marketing/reveal';

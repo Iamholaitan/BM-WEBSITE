@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import api from '@/lib/api';
 import { Shipment } from '@/types';
-import { Plus, Search, Filter, Package } from 'lucide-react';
+import { Plus, Search, Package } from 'lucide-react';
 
 const statusColors: Record<string, string> = {
   DRAFT: 'bg-gray-100 text-gray-700',
@@ -31,8 +31,8 @@ export default function ShipmentsPage() {
     if (search) params.set('search', search);
     if (statusFilter) params.set('status', statusFilter);
 
-    api
-      .get(`/shipments?${params}`)
+    void api
+      .get(`/shipments?${String(params)}`)
       .then((res) => {
         setShipments(res.data.data);
         setTotalPages(res.data.meta.totalPages);

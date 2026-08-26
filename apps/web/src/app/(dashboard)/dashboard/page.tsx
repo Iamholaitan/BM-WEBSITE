@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import api from '@/lib/api';
-import { Package, Truck, CheckCircle, Users, DollarSign, Clock, TrendingUp } from 'lucide-react';
+import { Package, Truck, CheckCircle, Users, DollarSign, Clock } from 'lucide-react';
 
 interface DashboardStats {
   totalShipments: number;
@@ -38,7 +38,7 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api
+    void api
       .get('/reports/dashboard-stats')
       .then((res) => setStats(res.data.data))
       .finally(() => setLoading(false));

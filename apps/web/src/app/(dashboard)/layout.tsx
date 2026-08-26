@@ -11,7 +11,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    checkAuth();
+    void checkAuth();
     setMounted(true);
   }, [checkAuth]);
 

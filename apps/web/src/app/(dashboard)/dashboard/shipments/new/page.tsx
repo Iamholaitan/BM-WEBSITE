@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import api from '@/lib/api';
-import { Customer, Warehouse, Carrier } from '@/types';
+import { Customer, Carrier } from '@/types';
 import { ArrowLeft, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -35,7 +35,7 @@ export default function NewShipmentPage() {
   });
 
   useEffect(() => {
-    Promise.all([api.get('/customers'), api.get('/carriers')]).then(([cRes, caRes]) => {
+    void Promise.all([api.get('/customers'), api.get('/carriers')]).then(([cRes, caRes]) => {
       setCustomers(cRes.data.data);
       setCarriers(caRes.data.data);
     });

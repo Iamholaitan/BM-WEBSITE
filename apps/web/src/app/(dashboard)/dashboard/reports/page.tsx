@@ -5,13 +5,13 @@ import api from '@/lib/api';
 import { BarChart3 } from 'lucide-react';
 
 export default function ReportsPage() {
-  const [stats, setStats] = useState<Record<string, unknown> | null>(null);
+  const [, setStats] = useState<Record<string, unknown> | null>(null);
   const [volume, setVolume] = useState<Array<{ date: string; count: number }>>([]);
   const [revenue, setRevenue] = useState<Array<{ month: string; total: number }>>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Promise.all([
+    void Promise.all([
       api.get('/reports/dashboard-stats'),
       api.get('/reports/shipment-volume'),
       api.get('/reports/revenue'),

@@ -6,7 +6,7 @@ import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 import { paginationSchema, createShipmentSchema, updateShipmentStatusSchema } from '@bm/shared';
-import { UserRole, ShipmentStatus as PrismaShipmentStatus } from '@prisma/client';
+import { UserRole } from '@prisma/client';
 import { ShipmentStatus } from '@bm/shared';
 
 @ApiTags('Shipments')

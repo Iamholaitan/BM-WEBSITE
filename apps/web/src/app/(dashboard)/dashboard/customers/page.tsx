@@ -16,7 +16,7 @@ export default function CustomersPage() {
     setLoading(true);
     const params = new URLSearchParams({ limit: '50' });
     if (search) params.set('search', search);
-    api.get(`/customers?${params}`).then((res) => {
+    void api.get(`/customers?${String(params)}`).then((res) => {
       setCustomers(res.data.data);
       setLoading(false);
     });

@@ -11,7 +11,6 @@ import {
   ShieldCheck,
   Sparkles,
 } from 'lucide-react';
-import { SectionHeading } from '@/components/marketing/section-heading';
 import { Reveal } from '@/components/marketing/reveal';
 import { CtaBanner } from '@/components/marketing/cta-banner';
 

@@ -21,7 +21,7 @@ export default function DocumentsPage() {
 
   const load = () => {
     setLoading(true);
-    api.get('/documents').then((res) => {
+    void api.get('/documents').then((res) => {
       setDocs(res.data.data);
       setLoading(false);
     });
