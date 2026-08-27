@@ -17,7 +17,7 @@ export class BillingController {
   @Get()
   @ApiOperation({ summary: 'List invoices' })
   async findAll(@Query() query: unknown) {
-    const params = paginationSchema.parse(query) as never;
+    const params = paginationSchema.parse(query);
     const result = await this.billingService.findAll(params);
     return { success: true, ...result };
   }

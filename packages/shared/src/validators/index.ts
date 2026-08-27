@@ -14,6 +14,8 @@ export const paginationSchema = z.object({
   search: z.string().optional(),
   sortBy: z.string().optional(),
   sortOrder: z.enum(['asc', 'desc']).default('desc'),
+  status: z.string().optional(),
+  customerId: z.string().uuid().optional(),
 });
 
 export const registerSchema = z.object({

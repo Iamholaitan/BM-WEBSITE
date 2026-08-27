@@ -19,7 +19,7 @@ export class ShipmentsController {
   @Get()
   @ApiOperation({ summary: 'List shipments' })
   async findAll(@Query() query: unknown) {
-    const params = paginationSchema.parse(query) as never;
+    const params = paginationSchema.parse(query);
     const result = await this.shipmentsService.findAll(params);
     return { success: true, ...result };
   }
