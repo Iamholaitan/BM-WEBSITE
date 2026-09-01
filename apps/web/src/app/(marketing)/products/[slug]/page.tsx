@@ -89,7 +89,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                 iconSize="h-32 w-32"
               />
               <p className="mt-3 text-center text-xs text-ink-soft/70">
-                Product photography placeholder — replace with actual photos in production.
+                {product.image ? 'Product photograph.' : 'Photograph showing by request.'}
               </p>
             </div>
           </Reveal>

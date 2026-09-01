@@ -10,6 +10,7 @@ export interface Product {
   forms: string[];
   packaging: string[];
   icon: string;
+  image?: string;
 }
 
 export const categoryLabels: Record<ProductCategory, string> = {

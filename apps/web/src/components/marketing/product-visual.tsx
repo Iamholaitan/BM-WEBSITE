@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import Image from 'next/image';
 import {
   Bean,
   Carrot,
@@ -63,31 +65,49 @@ export function ProductVisual({
   className = '',
   iconSize = 'h-16 w-16',
 }: {
-  product: { name: string; category: ProductCategory; icon: string };
+  product: { slug: string; name: string; category: ProductCategory; icon: string; image?: string };
   className?: string;
   iconSize?: string;
 }) {
   const style =
     categoryStyles[product.category] ?? categoryStyles['agro-commodities'];
   const Icon = iconMap[product.icon] ?? Leaf;
+  const imageSrc =
+    product.image ?? `/products/${product.slug}.jpg`;
+  const [useFallback, setUseFallback] = useState(false);
+
+  if (!imageSrc || useFallback) {
+    return (
+      <div
+        aria-hidden="true"
+        className={`relative flex items-center justify-center overflow-hidden bg-gradient-to-br ${style.gradient} ${className}`}
+      >
+        <div
+          className="absolute inset-0 opacity-[0.12]"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle at 20% 30%, white 1px, transparent 1px)',
+            backgroundSize: '22px 22px',
+          }}
+        />
+        <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/10" />
+        <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-black/10" />
+        <Icon className={`${iconSize} text-white/90`} strokeWidth={1.25} />
+        <span className="sr-only">{product.name}</span>
+      </div>
+    );
+  }
 
   return (
-    <div
-      aria-hidden="true"
-      className={`relative flex items-center justify-center overflow-hidden bg-gradient-to-br ${style.gradient} ${className}`}
-    >
-      <div
-        className="absolute inset-0 opacity-[0.12]"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle at 20% 30%, white 1px, transparent 1px)',
-          backgroundSize: '22px 22px',
-        }}
+    <div className={`relative overflow-hidden ${className}`}>
+      <Image
+        src={imageSrc}
+        alt={product.name}
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className="object-cover"
+        onError={() => setUseFallback(true)}
       />
-      <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/10" />
-      <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-black/10" />
-      <Icon className={`${iconSize} text-white/90`} strokeWidth={1.25} />
-      <span className="sr-only">{product.name}</span>
     </div>
   );
 }

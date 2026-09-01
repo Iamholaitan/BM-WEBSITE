@@ -10,12 +10,12 @@ import {
   Package,
   Settings2,
   Ship,
-  Truck,
 } from 'lucide-react';
 import { SectionHeading } from '@/components/marketing/section-heading';
 import { Reveal } from '@/components/marketing/reveal';
 import { WhatsAppIcon } from '@/components/marketing/whatsapp-icon';
 import { whatsappLink } from '@/lib/site';
+import { ContainerVisual } from './container-visual';
 
 export const metadata: Metadata = {
   title: '40ft Container Supply — Bulk Nigerian Agro-Commodities for Export',
@@ -179,21 +179,7 @@ export default function ContainerSupplyPage() {
           </Reveal>
 
           <Reveal delay={120}>
-            <div className="overflow-hidden rounded-2xl shadow-xl shadow-forest-900/10">
-              <div className="flex aspect-square flex-col items-center justify-center gap-6 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-600 p-10 text-center">
-                <Truck className="h-16 w-16 text-gold-400" strokeWidth={1} aria-hidden="true" />
-                <p className="font-display text-3xl font-bold leading-snug text-white sm:text-4xl">
-                  40ft Containers.
-                  <br />
-                  Buyer-Specified Packing.
-                  <br />
-                  <span className="text-gold-400">Global Delivery.</span>
-                </p>
-                <Link href="/request-quote" className="btn-gold mt-2 inline-flex">
-                  Request a 40ft Container Quote <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
+            <ContainerVisual />
           </Reveal>
         </div>
       </section>
