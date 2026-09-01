@@ -6,11 +6,11 @@ export const site = {
   description:
     'BM Global Investment is a Nigerian agro-commodity sourcing and export company supplying quality agricultural commodities and food products in bulk to international buyers.',
   url: 'https://bmglobalinvestment.com',
-  email: '[EMAIL ADDRESS]',
-  phone: '[PHONE NUMBER]',
-  whatsapp: '[WHATSAPP_NUMBER]',
-  address: '[COMPANY ADDRESS]',
-  businessHours: '[BUSINESS HOURS — e.g. Monday – Friday, 8:00am – 6:00pm WAT]',
+  email: 'bmglobalinvestmentandservices@gmail.com',
+  phone: '08186199215',
+  whatsapp: '2348186199215',
+  address: '22, Wharf Road, Apapa, Lagos',
+  businessHours: 'Monday – Friday, 8:00am – 6:00pm WAT',
   profilePdf: '/profile/bm-global-investment-company-profile.pdf',
 } as const;
 
